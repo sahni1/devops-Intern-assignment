@@ -67,7 +67,8 @@ http://localhost:8080/service2 → Routes to Flask app on service2:8002
 │   └── Dockerfile
 └── README.md
 ```
-
+## Docker-compose url
+https://github.com/sahni1/devops-Intern-assignment/blob/main/docker-compose.yml
 ---
 
 ## Screenshots
