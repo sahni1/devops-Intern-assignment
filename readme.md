@@ -1,38 +1,57 @@
-### 🧪 **DevOps Intern Assignment: Nginx Reverse Proxy + Docker**
+## 🚀 DevOps Internship Assignment – Nginx Reverse Proxy + Docker Compose
 
-You are expected to set up a simple system where:
+## 👋 About
 
-1. **Two Dockerized backend services** (can be dummy services) run on different ports.
-2. An **Nginx reverse proxy** (also in a Docker container) routes:
+This project demonstrates a multi-container setup using **Docker Compose**. It includes:
 
-   * `/service1` requests to backend service 1
-   * `/service2` requests to backend service 2
-3. All services must be accessible via a single port (e.g., `localhost:8080`).
+- 🟢 A **Go (Golang)** backend service (`service1`)  
+- 🐍 A **Python Flask** backend service (`service2`)  
+- 🌐 An **Nginx** container acting as a **reverse proxy**
 
----
+All services run under a single port via **Nginx path-based routing**.
 
-### ✅ **Requirements**
 
-1. Use Docker Compose to bring up the entire system.
-2. Each backend service should respond with a JSON payload like:
 
-   ```json
-   {"service": "service1"}
-   ```
-3. The Nginx config should support:
-
-   * Routing based on URL path prefix (`/service1`, `/service2`)
-   * Logging incoming requests with timestamp and path
-4. The system should work with a single command:
-
-   ```bash
-   docker-compose up --build
-   ```
-5. Bonus: Add a health check for both services and show logs of successful routing.
 
 ---
 
-### 📁 Suggested Project Structure
+### 🔧 Setup Instructions
+Clone the repository:
+
+
+```bash
+git clone https://github.com/sahni1/devops-Intern-assignment.git
+cd devops-Intern-assignment
+```
+Run the complete system:
+```bash
+docker-compose up --build
+```
+To stop the system:
+```bash
+docker-compose down
+```
+## 🌐 How Routing Works
+Nginx handles the following reverse proxy rules:
+
+http://localhost:8080/service1 → Routes to Go app on service1:8001
+
+http://localhost:8080/service2 → Routes to Flask app on service2:8002
+
+🔍 Logging: All incoming requests are logged with timestamp and path in Nginx logs.
+
+---
+
+🎁 Bonus Implemented
+  -  Health checks for both services using /ping endpoint
+  -  Nginx logs every request (timestamp + path)
+  -  Modular setup with 3 separate Dockerfiles
+  -  Custom bridge network
+  -  Clean folder structure and simple orchestration
+
+---
+
+### 📁 Project Structure
 
 ```
 .
@@ -51,51 +70,11 @@ You are expected to set up a simple system where:
 
 ---
 
-### 📦 Tech Constraints
+## Screenshots
+### 1. 
+![image](https://github.com/user-attachments/assets/08c9a73b-6dac-4bc3-acd2-bbceb7b3cbed)
+### 2.
+![image](https://github.com/user-attachments/assets/55e3b7af-5644-414b-a544-09dc337f436a)
 
-* Nginx must run in a Docker container, not on host
-* Use bridge networking (no host networking)
-
----
-
-### 📝 Submission Instructions
-
-1. Upload your project to GitHub or GitLab.
-2. Include a short `README.md` with:
-
-   * Setup instructions
-   * How routing works
-   * Any bonus you implemented
-3. Deadline: **1 week**
-4. Bonus points for:
-
-   * Logging clarity
-   * Clean and modular Docker setup
-   * Healthcheck or automated test script
-
----
-
-### ❓FAQs
-
-**Q: Is this a full-time role?**
-Yes. You would need to be in office in Bangalore.
-
-**Q: Is there a stipend?**
-Yes. 20k INR per month
-
-**Q: How many positions are open?**
-Two positions are open.
-
-**Q: I am still in college. Can I apply?**
-Unfortunately, we are looking for post-college candidates.
-
-**Q: Can I reach out for doubts?**
-No — due to the volume of submissions. Please use your creativity and assumptions where needed.
-
-**Q: Can I use ChatGPT or Copilot?**
-Yes, feel free to use AI tools — we care about your implementation and understanding.
-
-**Q: This feels like a lot for an intern assignment.**
-We agree it’s non-trivial — we’ve received many applications, so this helps us filter based on quality.
 
 
