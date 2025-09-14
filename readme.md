@@ -1,4 +1,4 @@
-## 🚀 DevOps Internship Assignment – Nginx Reverse Proxy + Docker Compose
+## 🚀 Assignment – Nginx Reverse Proxy + Docker Compose
 
 ## 👋 About
 
